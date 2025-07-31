@@ -2,41 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* UrbanEyes Design System - Geospatial Analytics Theme
+All colors MUST be HSL for proper dark mode support
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 210 24% 98%;
+    --foreground: 215 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Cards & Surfaces */
+    --card: 210 18% 99%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popovers & Overlays */
+    --popover: 210 18% 99%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Urban Tech Blue */
+    --primary: 211 65% 45%;
+    --primary-foreground: 210 17% 98%;
+    --primary-glow: 211 85% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Sophisticated Gray */
+    --secondary: 215 16% 92%;
+    --secondary-foreground: 215 25% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Elements */
+    --muted: 215 16% 94%;
+    --muted-foreground: 215 13% 48%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Teal for Data Highlights */
+    --accent: 180 65% 45%;
+    --accent-foreground: 210 17% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Data Visualization Colors */
+    --data-traffic: 14 85% 58%;     /* Orange for traffic */
+    --data-hospitals: 142 71% 45%;   /* Green for healthcare */
+    --data-schools: 262 83% 58%;     /* Purple for education */
+    --data-population: 211 85% 65%; /* Light blue for demographics */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Status & Alerts */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 17% 98%;
+    --warning: 38 92% 50%;
+    --success: 142 71% 45%;
 
-    --radius: 0.5rem;
+    /* Interactive Elements */
+    --border: 215 16% 88%;
+    --input: 215 16% 88%;
+    --ring: 211 65% 45%;
+
+    /* Layout */
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(211, 65%, 45%) 0%, hsl(180, 65%, 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(210, 18%, 99%) 0%, hsl(215, 16%, 96%) 100%);
+    --gradient-data: linear-gradient(90deg, hsl(211, 85%, 65%) 0%, hsl(180, 85%, 65%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215, 25%, 15%, 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215, 25%, 15%, 0.1), 0 2px 4px -1px hsl(215, 25%, 15%, 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(215, 25%, 15%, 0.1), 0 4px 6px -2px hsl(215, 25%, 15%, 0.05);
+    --shadow-glow: 0 0 20px hsl(211, 65%, 45%, 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +90,56 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Core Background & Text - Dark Mode */
+    --background: 215 28% 8%;
+    --foreground: 210 17% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Cards & Surfaces - Dark Mode */
+    --card: 215 25% 12%;
+    --card-foreground: 210 17% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Popovers & Overlays - Dark Mode */
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 17% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Primary - Brighter in Dark Mode */
+    --primary: 211 85% 65%;
+    --primary-foreground: 215 28% 8%;
+    --primary-glow: 211 95% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary - Dark Mode */
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 210 17% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Muted Elements - Dark Mode */
+    --muted: 215 20% 16%;
+    --muted-foreground: 215 13% 68%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent - Brighter Teal for Dark Mode */
+    --accent: 180 85% 55%;
+    --accent-foreground: 215 28% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Data Colors - Adjusted for Dark Mode */
+    --data-traffic: 14 85% 65%;
+    --data-hospitals: 142 71% 55%;
+    --data-schools: 262 83% 68%;
+    --data-population: 211 85% 75%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Status & Alerts - Dark Mode */
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 210 17% 98%;
+    --warning: 38 92% 60%;
+    --success: 142 71% 55%;
+
+    /* Interactive Elements - Dark Mode */
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 211 85% 65%;
+
+    /* Gradients - Dark Mode */
+    --gradient-hero: linear-gradient(135deg, hsl(211, 85%, 65%) 0%, hsl(180, 85%, 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(215, 25%, 12%) 0%, hsl(215, 20%, 16%) 100%);
+    --gradient-data: linear-gradient(90deg, hsl(211, 85%, 75%) 0%, hsl(180, 85%, 65%) 100%);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
