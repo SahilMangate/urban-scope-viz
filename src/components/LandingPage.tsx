@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, BarChart3, Upload, Settings, Eye, Layers } from "lucide-react"
-import heroImage from "@/assets/hero-urban-analytics.jpg"
 
 export default function LandingPage({ onLogin }: { onLogin: () => void }) {
   const [credentials, setCredentials] = useState({ username: "", password: "" })
@@ -35,10 +34,6 @@ export default function LandingPage({ onLogin }: { onLogin: () => void }) {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/95" />
         
         <div className="relative container mx-auto px-4 py-24 lg:py-32">
