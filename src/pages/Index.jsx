@@ -1,6 +1,6 @@
 import { useState } from "react"
-import LandingPage from "@/components/LandingPage"
-import Dashboard from "@/components/Dashboard"
+import LandingPage from "@/components/LandingPage.jsx"
+import Dashboard from "@/components/Dashboard.jsx"
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)

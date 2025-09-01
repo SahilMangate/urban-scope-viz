@@ -44,7 +44,7 @@ const dataLayers = [
 export function MapView() {
   const [layers, setLayers] = useState(dataLayers)
 
-  const toggleLayer = (layerId: string) => {
+  const toggleLayer = (layerId) => {
     setLayers(prev => prev.map(layer => 
       layer.id === layerId ? { ...layer, enabled: !layer.enabled } : layer
     ))

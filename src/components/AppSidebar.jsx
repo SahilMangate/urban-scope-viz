@@ -12,21 +12,14 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-type ViewType = "map" | "analytics" | "upload" | "settings"
-
-interface AppSidebarProps {
-  currentView: ViewType
-  onViewChange: (view: ViewType) => void
-}
-
 const navigationItems = [
-  { id: "map" as ViewType, title: "Map View", icon: MapPin, color: "text-data-traffic" },
-  { id: "analytics" as ViewType, title: "Analytics", icon: BarChart3, color: "text-data-hospitals" },
-  { id: "upload" as ViewType, title: "Upload Data", icon: Upload, color: "text-data-schools" },
-  { id: "settings" as ViewType, title: "Settings", icon: Settings, color: "text-data-population" },
+  { id: "map", title: "Map View", icon: MapPin, color: "text-data-traffic" },
+  { id: "analytics", title: "Analytics", icon: BarChart3, color: "text-data-hospitals" },
+  { id: "upload", title: "Upload Data", icon: Upload, color: "text-data-schools" },
+  { id: "settings", title: "Settings", icon: Settings, color: "text-data-population" },
 ]
 
-export function AppSidebar({ currentView, onViewChange }: AppSidebarProps) {
+export function AppSidebar({ currentView, onViewChange }) {
   const { state } = useSidebar()
 
   return (

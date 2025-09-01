@@ -1,16 +1,14 @@
 import { useState } from "react"
 import { SidebarProvider } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/AppSidebar"
-import { DashboardHeader } from "@/components/DashboardHeader"
-import { MapView } from "@/components/MapView"
-import { AnalyticsView } from "@/components/AnalyticsView"
-import { UploadDataView } from "@/components/UploadDataView"
-import { SettingsView } from "@/components/SettingsView"
-
-type ViewType = "map" | "analytics" | "upload" | "settings"
+import { AppSidebar } from "@/components/AppSidebar.jsx"
+import { DashboardHeader } from "@/components/DashboardHeader.jsx"
+import { MapView } from "@/components/MapView.jsx"
+import { AnalyticsView } from "@/components/AnalyticsView.jsx"
+import { UploadDataView } from "@/components/UploadDataView.jsx"
+import { SettingsView } from "@/components/SettingsView.jsx"
 
 export default function Dashboard() {
-  const [currentView, setCurrentView] = useState<ViewType>("map")
+  const [currentView, setCurrentView] = useState("map")
 
   const renderCurrentView = () => {
     switch (currentView) {

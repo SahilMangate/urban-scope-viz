@@ -7,18 +7,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Upload, FileText, CheckCircle, AlertCircle, X } from "lucide-react"
 
-interface UploadedFile {
-  id: string
-  name: string
-  type: string
-  size: string
-  status: "uploading" | "success" | "error"
-  dataType: string
-}
+// UploadedFile structure: { id, name, type, size, status, dataType }
 
 export function UploadDataView() {
   const [selectedDataType, setSelectedDataType] = useState("")
-  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([
+  const [uploadedFiles, setUploadedFiles] = useState([
     {
       id: "1",
       name: "traffic_data_2024.csv",
@@ -45,12 +38,12 @@ export function UploadDataView() {
     { value: "infrastructure", label: "Infrastructure", icon: "🏗️" }
   ]
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (event) => {
     const files = event.target.files
     if (files && selectedDataType) {
       // Simulate file upload
       Array.from(files).forEach((file, index) => {
-        const newFile: UploadedFile = {
+        const newFile = {
           id: Date.now().toString() + index,
           name: file.name,
           type: file.name.split('.').pop()?.toUpperCase() || 'Unknown',
@@ -71,11 +64,11 @@ export function UploadDataView() {
     }
   }
 
-  const removeFile = (fileId: string) => {
+  const removeFile = (fileId) => {
     setUploadedFiles(prev => prev.filter(f => f.id !== fileId))
   }
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "success":
         return <CheckCircle className="h-4 w-4 text-success" />

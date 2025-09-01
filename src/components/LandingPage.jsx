@@ -6,10 +6,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MapPin, BarChart3, Upload, Settings, Eye, Layers } from "lucide-react"
 import heroImage from "@/assets/hero-urban-analytics.jpg"
 
-export default function LandingPage({ onLogin }: { onLogin: () => void }) {
+export default function LandingPage({ onLogin }) {
   const [credentials, setCredentials] = useState({ username: "", password: "" })
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = (e) => {
     e.preventDefault()
     onLogin()
   }
